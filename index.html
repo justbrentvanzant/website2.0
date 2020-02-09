@@ -14,30 +14,61 @@
 
 <body>
   <div id="particles-js"></div>
-  <div class="toolbar">
+  <div class="toolbar centeredTool">
         <ul>
-            <li><a href="#" class="transparent"><i class="fa fa-twitch"></i></a></li>
-            <li><a href="#" class="transparent"><i class="fa fa-github"></i></a></li>
-            <li><a href="#" class="transparent"><i class="fa fa-linkedin"></i></a></li>
-			<li><a href="#" class="transparent"><i class="fa fa-facebook"></i></a></li>
-             <li><a href="VanZantBrentResume.pdf" class="transparent"><i class="fa fa-file"></i></a></li>
+            <li><a target="_blank" href="https://github.com/justbrentvanzant/" class="transparent"><i class="fa fa-2x  fa-github"></i></a></li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/brent-vanzant-65580116a/" class="transparent"><i class="fa fa-2x fa-linkedin"></i></a></li>
+			<li><a target="_blank"href="https://www.facebook.com/brent.laurent.5/" class="transparent"><i class="fa fa-2x  fa-facebook"></i></a></li>
+             <li><a target="_blank" href="VanZantBrentResume.pdf" class="transparent"><i class="fa fa-2x  fa-file"></i></a></li>
         </ul>
     </div>
-    <div class="mainOffset">
-	      <!--<img src="img/logo.png" alt="logo" height="75" width="130">-->
-	      <div id="placeHolder"></div>
+    <div id="mainContext" class="centered">
 	      <div class="particle-text">
 	        Brent VanZant
 	      </div>
 
 	      <div class="particle-header-text">
-	        Software Engineer &nbsp|&nbsp <span class="transparent">Game Developer</span>
+	        <span id="softwareClick" >Software Engineer</span> &nbsp|&nbsp <span id="gameDevClick" class="transparent">Game Developer</span>
 	      </div>
 
-	      <div class="particle-body-text">
-	        Software Engineer Intern @ Facebook!  </div>
+	      <div id="software" class="particle-body-text visible">
+	        Incoming SWE Intern @ Facebook!  </div>
+		
+			<div id="gameDev" class="particle-body-text hidden">
+	        President @ VGDC UCSD<br> 
+			<a class="link" href="https://patrickgh3.itch.io/jibberish">Latest Game Jam Game </a>
+			</div>
   	</div>
   </body>
  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
  <script src="app.js"></script>
+ <script>
+	//Thanks for looking at my code!
+	var gameDevClicker = document.getElementById("gameDevClick");
+	var softwareClick = document.getElementById("softwareClick");
+	var software = document.getElementById("software");
+	var gameDev = document.getElementById("gameDev");
+	gameDevClicker.addEventListener('click', event => {
+		resetVis(gameDev);
+		hideVis(software);
+		gameDevClicker.classList.remove("transparent");
+		softwareClick.classList.add("transparent");
+	});
+	softwareClick.addEventListener('click', event => {
+		resetVis(software);
+		hideVis(gameDev);
+		gameDevClicker.classList.add("transparent");
+		softwareClick.classList.remove("transparent");
+	});
+	var resetVis = function(element) {
+		element.classList.remove("hidden");
+		element.classList.add("visible");
+	};
+	var hideVis = function(element) {
+		element.classList.remove("visible");
+		element.classList.add("hidden");
+	};
+	
+ </script>	
+ 
  </html>
